@@ -30,7 +30,7 @@ function Hero() {
                 <img
                   src={element.adminPhoto}
                   alt=""
-                  className="w-12 h-12 rounded-full border-2 border-yellow-400"
+                  className="w-12 h-12 rounded-full border-2 border-pink-400"
                 />
                 <div className="ml-4">
                   <p className="text-lg font-semibold text-gray-800">
