@@ -1,15 +1,15 @@
-import jwt from "jsonwebtoken"
-import { User } from "../models/user.model.js"
+import jwt from "jsonwebtoken";
+import { User } from "../models/user.model.js";
 
 const createTokenAndSaveCookies = async(userId,res) => {
    const token = jwt.sign({userId},process.env.JWT_SECRETE_KEY,{
-      expiresIn : "30d"
-   })
+      expiresIn : "30d",
+   });
    res.cookie("jwt",token,{
-      httpOnly: true,
+      httpOnly: false,
       secure: true,
-      sameSite : "strict"
-   })
+      sameSite : "none",
+   });
 
   await User.findByIdAndUpdate(userId, { token });
   return token;
